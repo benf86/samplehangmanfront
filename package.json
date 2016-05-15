@@ -1,0 +1,37 @@
+{
+  "name": "comment-anything-on-the-net",
+  "version": "0.0.0",
+  "description": "An extension that fights censorship and allows people to freely comment anything, anywhere on the net.",
+  "main": "./build/app/main.js",
+  "scripts": {
+    "start": "npm run build:prep && concurrently \"npm run tsc:w\" \"npm run lite\" \"npm run scss:w\" \"npm run watch:static\" \"npm run watch:templates\" \"npm test\"",
+    "test": "./node_modules/jasmine-node/bin/jasmine-node --color --verbose  --watch ./build --autotest --test-dir spec/tests",
+    "lite": "lite-server",
+    "postinstall": "typings install",
+    "tsc:w": "tsc -w",
+    "typings": "typings",
+    "scss:w": "sass --watch ./src/app/styles/:./build/app/styles/",
+    "build:prep": "mkdir -p ./build && ln -nsf ../node_modules ./build/node_modules",
+    "watch:static": "mkdir -p ./build/static && node node_modules/watch/cli.js 'cp src/static/* -R build/static' src/static/ --interval=2",
+    "watch:templates": "mkdir -p ./build/app/templates && node node_modules/watch/cli.js 'cp src/app/templates/* -R build/app/templates/' src/app/templates/ --interval=2"
+  },
+  "author": "Rolando Benjamin Vaz Ferreira",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "devDependencies": {
+    "concurrently": "^2.1.0",
+    "jasmine-node": "^1.14.5",
+    "lite-server": "^2.2.0",
+    "reflect-metadata": "0.1.2",
+    "typescript": "^1.8.10",
+    "typings": "^0.8.1",
+    "watch": "^0.18.0"
+  },
+  "dependencies": {
+    "angular2": "^2.0.0-beta.17",
+    "es6-shim": "^0.35.1",
+    "lodash": "^4.12.0",
+    "rxjs": "5.0.0-beta.6",
+    "systemjs": "^0.19.27",
+    "zone.js": "0.6.12"
+  }
+}
