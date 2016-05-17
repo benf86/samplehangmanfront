@@ -5,7 +5,7 @@ import {routes} from '../controllers/routes/default.route';
 
 
 @Component({
-    selector: 'my-caa',
+    selector: 'my-app',
     template: `
         <router-outlet></router-outlet>
     `,

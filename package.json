@@ -1,7 +1,7 @@
 {
-  "name": "comment-anything-on-the-net",
+  "name": "my-a2-project",
   "version": "0.0.0",
-  "description": "An extension that fights censorship and allows people to freely comment anything, anywhere on the net.",
+  "description": "This is gonna be the most bestest A2 project ever!",
   "main": "./build/app/main.js",
   "scripts": {
     "start": "npm run build:prep && concurrently \"npm run tsc:w\" \"npm run lite\" \"npm run scss:w\" \"npm run watch:static\" \"npm run watch:templates\" \"npm test\"",
@@ -15,7 +15,7 @@
     "watch:static": "mkdir -p ./build/static && node node_modules/watch/cli.js 'cp src/static/* -R build/static' src/static/ --interval=2",
     "watch:templates": "mkdir -p ./build/app/templates && node node_modules/watch/cli.js 'cp src/app/templates/* -R build/app/templates/' src/app/templates/ --interval=2"
   },
-  "author": "Rolando Benjamin Vaz Ferreira",
+  "author": "",
   "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
     "concurrently": "^2.1.0",
