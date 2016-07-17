@@ -1,0 +1,12 @@
+<div class="overview">
+    <section class="games">
+        <div class="game_{{game.get('uuid')}}"
+         *ngFor="let game of games">
+            <div class="visualization">{{game.get('visualization')}}</div>
+            <div class="word">{{game.get('word')}}</div>
+            <div class="attempts">{{game.get('attempts')}}</div>
+            <div class="status">{{game.get('status')}}</div>
+            <div class="uuid">{{game.get('uuid')}}</div>
+        </div>
+    </section>
+</div>
