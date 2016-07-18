@@ -13,7 +13,7 @@ import {AdminService} from '../services/admin.service';
     templateUrl: '/app/templates/app.component.html',
     styleUrls: ['./app/styles/styles.css'],
     directives: [ROUTER_DIRECTIVES],
-    providers: [ROUTER_PROVIDERS, HTTP_PROVIDERS, HangmanService, AdminService]
+    providers: [ROUTER_PROVIDERS, HTTP_PROVIDERS, HangmanService, AdminService, ConfigService]
 })
 @RouteConfig(routes)
 export class AppComponent {

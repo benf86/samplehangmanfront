@@ -1,5 +1,6 @@
 import {Component, OnInit, AfterViewChecked} from 'angular2/core';
-import {DOM} from 'angular2/src/platform/dom/dom_adapter';
+import {NgIf} from 'angular2/common';
+
 
 import {ConfigService} from '../services/config.service';
 import {HangmanService} from '../services/hangman.service';
@@ -16,8 +17,11 @@ export class HangmanComponent implements OnInit {
         private config: ConfigService
     ) { }
 
-    game = this.hangmanService.currentGame;
+    game = this.hangmanService.currentState;
 
     ngOnInit () {
+        console.log('Running oninit');
+
+        this.hangmanService.getGame();
     }
 }

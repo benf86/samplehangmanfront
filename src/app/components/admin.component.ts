@@ -16,8 +16,6 @@ export class AdminComponent implements OnInit {
         private config: ConfigService
     ) { }
 
-    game = this.adminService.currentGame;
-
     ngOnInit () {
     }
 }

@@ -1,7 +1,8 @@
-<div class="game_{{game.get('uuid')}}">
-    <div class="visualization">{{game.get('visualization')}}</div>
-    <div class="word">{{game.get('word')}}</div>
-    <div class="attempts">{{game.get('attempts')}}</div>
-    <div class="status">{{game.get('status')}}</div>
+<div class="game_{{game.uuid}}"
+    *ngIf=game.currentGame>
+    <div class="visualization">{{game.currentGame.get('visualization')}}</div>
+    <div class="word">{{game.currentGame.get('word')}}</div>
+    <div class="attempts">{{game.currentGame.get('attempts')}}</div>
+    <div class="status">{{game.currentGame.get('status')}}</div>
     <input type="text" name="letter">
 </div>

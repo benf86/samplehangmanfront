@@ -1,11 +1,11 @@
-import {AdminComponent} from '../../components/management.component';
+import {AdminComponent} from '../../components/admin.component';
 import {HangmanComponent} from '../../components/hangman.component';
 
 
 export var routes = [
     {
         path: '/admin',
-        name: 'Management',
+        name: 'Admin',
         component: AdminComponent,
         useAsDefault: false
     },

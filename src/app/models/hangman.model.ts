@@ -1,18 +1,20 @@
 import {BaseModel} from '../util/extendables/base.model.extendable';
 
 export class HangmanModel extends BaseModel {
-    public static create (gameData: string): HangmanModel {
-        var temp = JSON.parse(gameData);
+    public static create (gameData): HangmanModel {
         return new HangmanModel({
-            visualization: HangmanModel.getStage(temp.game_data.misses),
-            uuid: temp.uuid,
-            word: temp.game_data._word,
-            attempts: temp.game_data.attempts,
-            status: temp.game_data.outcome
+            visualization: HangmanModel.getStage(gameData.game_data.misses),
+            uuid: gameData.uuid,
+            word: gameData.game_data._word.map(e => {
+                if (!e) return '_';
+                return e
+            }).join(' '),
+            attempts: JSON.stringify(gameData.game_data.attempts, 0, 4),
+            status: gameData.game_data.outcome
         });
     }
 
-    private static getStage (stage: int): string {
+    private static getStage (stage: number): string {
         if (stage > 5) return stages[5];
         var stages = [
 `____`

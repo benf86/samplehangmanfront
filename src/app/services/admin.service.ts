@@ -11,35 +11,6 @@ import {HangmanModel} from '../models/hangman.model';
 export class AdminService {
     constructor (
         private http: Http,
-        private config: ConfigService,
+        private config: ConfigService
     ) {}
-
-    currentGame : {};
-
-    // check localstorage for game in progress
-    isGameInProgress (): boolean {
-        return false;
-    };
-
-    // return current game or new game if none saved
-    getGame (): HangmanModel {
-        if (!isGameInProgress()) {
-            this.startNewGame()
-            .subscribe(
-                data => {
-                    console.log(data);
-                    currentGame = HangmanModel.create(data);
-                }
-            )
-        }
-    };
-
-    // get new game from server
-    startNewGame (): HangmanModel {
-        return this.http.get(`${this.config.api.host}${this.config.api.path}`)
-        .map(res => res.json())
-    };
-
-    // update current game
-    updateCurrentGame (letter: string): HangmanModel {};
 }
