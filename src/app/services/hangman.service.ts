@@ -31,6 +31,7 @@ export class HangmanService {
                 data => {
                     console.log('>>>', data);
                     this.currentState.currentGame = HangmanModel.create(data);
+                    this.currentState.nextLetter = '';
                     console.log(this.currentState);
                 }
             )
@@ -48,5 +49,17 @@ export class HangmanService {
     };
 
     // update current game
-    updateCurrentGame (letter: string): any {};
+    updateCurrentGame (letter: string, game: any): any {
+        let body = JSON.stringify({ letter });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        console.log(game);
+
+        return this.http.put(`${this.config.api.host}${this.config.api.RESTpath}/games/${game.currentGame.get('uuid')}`, body, options)
+        .map(res => res.json())
+        .subscribe(data => {
+            this.currentState.currentGame = HangmanModel.create(data);
+            this.currentState.nextLetter = '';
+        });
+    };
 }

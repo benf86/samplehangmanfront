@@ -28,8 +28,11 @@
   },
   "dependencies": {
     "angular2": "^2.0.0-beta.17",
+    "angular2-localstorage": "^0.4.0",
     "es6-shim": "^0.35.1",
+    "install": "^0.8.1",
     "lodash": "^4.13.1",
+    "npm": "^3.10.5",
     "rxjs": "5.0.0-beta.6",
     "systemjs": "^0.19.27",
     "zone.js": "0.6.12"

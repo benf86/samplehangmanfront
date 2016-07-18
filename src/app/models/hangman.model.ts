@@ -10,7 +10,7 @@ export class HangmanModel extends BaseModel {
                 return e
             }).join(' '),
             attempts: JSON.stringify(gameData.game_data.attempts, 0, 4),
-            status: gameData.game_data.outcome
+            status: !!gameData.game_data.outcome ? 'Victory!' : 'Hanged - you lose!'
         });
     }
 
