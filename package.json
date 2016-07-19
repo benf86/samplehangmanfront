@@ -11,9 +11,10 @@
     "tsc:w": "tsc -w",
     "typings": "typings",
     "scss:w": "sass --watch ./src/app/styles/:./build/app/styles/",
-    "build:prep": "mkdir -p ./build && ln -nsf ../node_modules ./build/node_modules",
+    "build:prep": "mkdir -p ./build && ln -nsf ../node_modules ./build/node_modules && npm run linkindex",
     "watch:static": "mkdir -p ./build/static && node node_modules/watch/cli.js 'cp src/static/* -R build/static' src/static/ --interval=2",
-    "watch:templates": "mkdir -p ./build/app/templates && node node_modules/watch/cli.js 'cp src/app/templates/* -R build/app/templates/' src/app/templates/ --interval=2"
+    "watch:templates": "mkdir -p ./build/app/templates && node node_modules/watch/cli.js 'cp src/app/templates/* -R build/app/templates/' src/app/templates/ --interval=2",
+    "linkindex": "ln -nfs ./static/index.html ./build/index.html"
   },
   "author": "",
   "license": "SEE LICENSE IN LICENSE.md",
