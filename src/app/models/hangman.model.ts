@@ -20,7 +20,7 @@ export class HangmanModel extends BaseModel {
         return 'Game in progress...';
     }
 
-    private static getStage (stage: number): string {
+    private static getStage (stage): string {
         if (stage > 5) return stages[5];
         var stages = [
 `____`

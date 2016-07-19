@@ -16,6 +16,12 @@ export class AdminComponent implements OnInit {
         private config: ConfigService
     ) { }
 
+    currentState = {
+        games: [],
+        message: 'Not connected'
+    }
+
     ngOnInit () {
+        this.adminService.runAdmin(this.currentState);
     }
 }
