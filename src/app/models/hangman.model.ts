@@ -10,8 +10,14 @@ export class HangmanModel extends BaseModel {
                 return e
             }).join(' '),
             attempts: JSON.stringify(gameData.game_data.attempts, 0, 4),
-            status: !!gameData.game_data.outcome ? 'Victory!' : 'Hanged - you lose!'
+            status: this.gameStatus(gameData)
         });
+    }
+
+    private static gameStatus (gameData): string {
+        if (gameData.game_data.misses === 5) return 'Hanged - You lost!';
+        if (gameData.game_data.outcome === 1) return 'Victory!';
+        return 'Game in progress...';
     }
 
     private static getStage (stage: number): string {

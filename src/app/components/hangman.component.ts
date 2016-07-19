@@ -19,16 +19,19 @@ export class HangmanComponent implements OnInit {
     ) { }
 
     game = this.hangmanService.currentState;
+    gameToLoadUuid = '';
 
     ngOnInit () {
         console.log('Running oninit');
-
-        this.hangmanService.getGame();
+        this.hangmanService.loadGame();
     }
 
     sendNextLetter (event) {
-        if ('a' <= event.key.toLowerCase() <= 'z')
-            console.log(event.key);
-            this.hangmanService.updateCurrentGame(event.key, this.game);
+        this.hangmanService.updateCurrentGame(event.key, this.game);
+    }
+
+    loadGame (uuid) {
+        if (!uuid) this.hangmanService.reset();
+        this.hangmanService.loadGame(uuid);
     }
 }

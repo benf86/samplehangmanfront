@@ -4,7 +4,14 @@
     <div class="word">{{game.currentGame.get('word')}}</div>
     <div class="attempts">{{game.currentGame.get('attempts')}}</div>
     <div class="status">{{game.currentGame.get('status')}}</div>
+    <div class="id">Game id: {{game.currentGame.get('uuid')}}</div>
     Enter next letter here:
         <input type="text" maxlength="1" name="letter" [(ngModel)]="game.nextLetter"
             (keypress)=sendNextLetter($event)>
+</div>
+<div>
+    <input type="text" placeholder="paste game id here" name="loadGameUuid" maxlength="36" [(ngModel)]="gameToLoadUuid">
+    <input type="button" name="new/load game" value="new/load game"
+        (click)=loadGame(gameToLoadUuid)
+    >
 </div>
